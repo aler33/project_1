@@ -13,11 +13,17 @@ def employees_photo_path(instance, filename):
 
 
 class Employee(models.Model):
-    first_name = models.CharField(max_length=64, blank=False)
     last_name = models.CharField(max_length=64, blank=False)
+    first_name = models.CharField(max_length=64, blank=False)
     sur_name = models.CharField(max_length=64, blank=True)
     photo = models.ImageField(upload_to=employees_photo_path, blank=True, null=True)
     job_title = models.CharField(max_length=64, blank=True)
     salary = models.PositiveIntegerField()
-    age = models.PositiveIntegerField(blank=True, null=True)
-    department_id = models.ForeignKey('department.Department', on_delete=models.DO_NOTHING)
+    # age = models.PositiveIntegerField(blank=True, null=True)
+    birthday = models.DateField(blank=False)
+    department_id = models.ForeignKey('department.Department', on_delete=models.DO_NOTHING, blank=True, null=True)
+
+    @property
+    def age(self):
+        import datetime
+        return int((datetime.date.today() - self.birthday).days / 365.25)
