@@ -13,6 +13,7 @@ djangorestframework = "^3.14.0"
 markdown = "^3.4.3"
 django-filter = "^23.1"
 pillow = "^9.5.0"
+drf-yasg = "^1.21.5"
 
 
 [build-system]
