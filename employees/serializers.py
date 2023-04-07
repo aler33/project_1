@@ -5,7 +5,6 @@ from .models import Employee
 class EmployeesSerializer(ModelSerializer):
     class Meta:
         model = Employee
-        # fields = '__all__'
         fields = (
             'last_name',
             'first_name',
@@ -21,7 +20,6 @@ class EmployeesSerializer(ModelSerializer):
 class EmployeesPostSerializer(ModelSerializer):
     class Meta:
         model = Employee
-        # fields = '__all__'
         fields = (
             'last_name',
             'first_name',

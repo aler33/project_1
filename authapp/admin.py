@@ -4,9 +4,7 @@ from authapp import models as authapp_models
 from employees import models as employees_models
 
 
-# admin.site.register(department_models.Department)
 admin.site.register(authapp_models.CustomUser)
-# admin.site.register(employees_models.Employee)
 
 
 @admin.register(employees_models.Employee)
@@ -25,7 +23,6 @@ class DepartmentAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'get_employees_name']
 
     def get_employees_name(self, obj):
-        # return f'{obj.director.last_name} {obj.director.first_name}'
         if obj.director:
             return f'{obj.director.last_name} {obj.director.first_name}'
         else:

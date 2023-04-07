@@ -6,7 +6,6 @@ class DepartmentSerializer(ModelSerializer):
 
     class Meta:
         model = Department
-        # fields = "__all__"
         fields = (
             'id',
             'name',
@@ -16,12 +15,14 @@ class DepartmentSerializer(ModelSerializer):
 
 class DepartmentMoreSerializer(ModelSerializer):
     total_employees = IntegerField()
+    total_salary = IntegerField()
+
     class Meta:
         model = Department
-        # fields = "__all__"
         fields = (
             'id',
             'name',
             'director',
             'total_employees',
+            'total_salary',
         )

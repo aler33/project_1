@@ -16,7 +16,7 @@ schema_view = get_schema_view(
     public=True,
 )
 
-
+# employ-depart - список сотрудников по департаментам
 router = DefaultRouter()
 router.register('department', DepartmentModelViewSet)
 router.register('employ-depart', EmployeesDepartmentModelViewSet)
